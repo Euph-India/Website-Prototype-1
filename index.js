@@ -18,7 +18,7 @@ const session = require('express-session');
 
 var sqlite = require("better-sqlite3");
 var SqliteStore = require("better-sqlite3-session-store")(session)
-var seshdb = new sqlite("sessions.db", { verbose: console.log });
+var seshdb = new sqlite("sessions.db");
 
 app.use(session({
     store: new SqliteStore({
@@ -60,5 +60,5 @@ fs.readdir('./backend', (err, files) => {
 });
 
 server.listen(port, () => {
-    console.log('listening on *:' + port);
+    console.log('Listening on port ' + port);
 });
