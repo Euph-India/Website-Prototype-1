@@ -1,0 +1,16 @@
+<h1><%= product.name %></h1>
+<p><%= product.price %></p>
+<form action="/cartadd" method="POST">
+    <select name="size" required>
+        <% product.sizes.forEach(size => { %>
+            <option value="<%= size %>"><%= size %></option>
+        <% }) %>
+    </select>
+    <select name="design" required>
+        <% product.colors.forEach(color => { %>
+            <option value="<%= color %>"><%= color %></option>
+        <% }) %>
+    <input type="number" name="quantity" value="1" max="20">
+    <input type="hidden" name="id" value="<%= product.id %>">
+  <button>Add to Cart</button>
+</form>

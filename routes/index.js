@@ -1,7 +1,7 @@
 module.exports = (app, io, db) => {
-    app.get('/', (req, res) => {
+    app.get('/', async (req, res) => {
         res.render('index', {
-            title: 'Home',
+            products: await db.get('products'),
         });
     });
 }

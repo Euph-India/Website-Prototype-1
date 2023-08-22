@@ -12,6 +12,10 @@ const db = new QuickDB({
     filePath: "main.db"
 });
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 const fs = require('fs');
 
 const session = require('express-session');
@@ -58,6 +62,21 @@ fs.readdir('./backend', (err, files) => {
         require('./backend/' + file)(app, io, db);
     });
 });
+
+(async () => {
+    if (!await db.get("products")) {
+        await db.set("products", [])
+    }
+    if (!await db.get("coupons")) {
+        await db.set("coupons", [])
+    }
+    if (!await db.get("affiliate")) {
+        await db.set("affiliate", [])
+    }
+    if (!await db.get("checkouts")) {
+        await db.set("checkouts", [])
+    }
+})();
 
 server.listen(port, () => {
     console.log('Listening on port ' + port);

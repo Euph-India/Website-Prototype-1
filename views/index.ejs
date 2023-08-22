@@ -1,1 +1,9 @@
-Getting soon
+<% products.forEach(product => { %>
+<div class="product">
+  <h2><%= product.name %></h2>
+  <p><%= product.price %></p>
+  <div>
+    <a href="/products/<%= product.id %>">View</a>
+  </div>
+</div>
+<% }) %>
