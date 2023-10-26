@@ -1,0 +1,52 @@
+
+
+  <!-- Footer -->
+  <footer class="bg-black p-5">
+    <div class="container-fluid">
+        <center class="mb-5 endofpage"><h2 class="c-t-primary">You have reached the end of the page ..</h2></center>
+        <div class="row text-white-50">
+            <div class="col-md-4 d-md-block d-none col-12">
+                <h3 class="fw-bold text-white">EuphIndia</h3>
+                <p class="m-0">Dress with Intention</p>
+            </div>
+            <div class="col-md-4 d-md-block d-none col-12">
+                <h3 class="fw-bold text-white">EuphIndia</h3>
+                <p class="m-0">Dress with Intention</p>
+            </div>
+            <div class="col-md-4 d-md-block d-none col-12">
+                <h3 class="fw-bold text-white">EuphIndia</h3>
+                <p class="m-0">Dress with Intention</p>
+            </div>
+            <div class="col-md-4 d-md-none d-block text-center col-12">
+                <h3 class="fw-bold text-white">EuphIndia</h3>
+                <p class="m-0">Dress with Intention</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+
+<script src="/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script>
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 500);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("main").style.display = "block";
+  setTimeout(() => {  
+    try {
+      customAnimation(); 
+    } catch {
+      return;
+    }
+  }, 1500);
+}
+</script>
+</body>
+
+</html>

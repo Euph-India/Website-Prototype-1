@@ -41,7 +41,7 @@ app.use(session({
 app.engine('ejs', require('express-art-template'));
 app.set('view engine', 'ejs');
 
-app.use('/public', express.static('public'));
+app.use(express.static('public'));
 
 fs.readdir('./routes', (err, files) => {
     if (err) {

@@ -1,1 +1,39 @@
-<% cart.forEach
+<%- include('./partials/header.ejs') %>
+
+<main class="cart">
+  <div class="cart-products">
+    <% session.cart.forEach((product, index) => { %>
+      <form action="/cartremove" class="cart-product" method="POST"> 
+          <div class="cart-data">
+            <h1>
+              <a href="/products/<%= product.id %>">
+                <%= product.name %>
+              </a>
+              <p>
+                [ <%= product.size %> ]
+              </p>
+            </h1>
+          </div>
+          
+          <div class="form">
+            <b>
+              ₹<%= product.price.toLocaleString() %> × <%= product.quantity %> = ₹<%= (product.price * product.quantity).toLocaleString() %>
+            </b>
+            <input type="hidden" name="id" required value="<%= index %>">
+            <button>Remove</button>
+          </div>
+      </form>
+    <% }) %>
+  </div>
+
+  <h2 class="total">
+    <span>Total: ₹<%= 
+    session.cart.reduce((total, product) => {
+      return (total + (product.price * product.quantity)).toLocaleString()
+    }, 0)  
+    %></span>
+    
+</h2>
+</main>
+
+<%- include('./partials/footer.ejs') %>

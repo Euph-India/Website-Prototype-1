@@ -1,16 +1,39 @@
-<h1><%= product.name %></h1>
-<p><%= product.price %></p>
-<form action="/cartadd" method="POST">
-    <select name="size" required>
-        <% product.sizes.forEach(size => { %>
-            <option value="<%= size %>"><%= size %></option>
-        <% }) %>
-    </select>
-    <select name="design" required>
-        <% product.colors.forEach(color => { %>
-            <option value="<%= color %>"><%= color %></option>
-        <% }) %>
-    <input type="number" name="quantity" value="1" max="20">
-    <input type="hidden" name="id" value="<%= product.id %>">
-  <button>Add to Cart</button>
-</form>
+<%- include('./partials/header.ejs') %>
+
+<main class="product">
+  <div class="img">
+    <img src="<%= product.img %>" alt="Image of <%= product.name %>">
+  </div>
+  <div class="details">
+
+    <h1><%= product.name %></h1>
+    <p>
+      <%= product.desc %>
+    </p>
+    <h2><strike>₹ <%= product.beforeprice %></strike> <%= product.price %></h2>
+
+    <form action="/cartadd" method="POST">
+      <div>
+        <p>Size:</p>
+        <select name="size" required>
+          <% product.sizes.forEach(size => { %>
+          <option value="<%= size %>"><%= size %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div>
+        <p>Quantity:</p>
+        <input type="number" name="quantity" required value="1" min="1" max="20">
+        <input type="hidden" name="id" value="<%= product.id %>">
+      </div>
+      <button>Add to Cart</button>
+    </form>
+
+  </div>
+</main>
+
+<section class="product-details">
+  
+</section>
+
+<%- include('./partials/footer.ejs') %>
