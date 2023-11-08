@@ -1,0 +1,54 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="page pg-left">
+  <h1 class="title">
+    Order #<%= order.id %>
+  </h1>
+
+  <h2>
+    Contact
+  </h2>
+  <p>
+    Name: <%= order.contact.name %><br>
+    Email: <%= order.contact.email %><br>
+    Phone: <%= order.contact.phone %><br>
+  </p>
+
+  <h2>
+    Shipping
+  </h2>
+  <p>
+    Add: <%= order.shipping.address %><br>
+    City: <%= order.shipping.city %><br>
+    State: <%= order.shipping.state %><br>
+    Pincode: <%= order.shipping.pincode %><br>
+  </p>
+
+  <h2>
+    Order
+  </h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% order.items.forEach(function(product) { %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.quantity %></td>
+        <td><%= product.price %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <h2>
+    Total: <%= order.total %>
+  </h2>
+</main>
+
+<%- include('../partials/footer.ejs') %>

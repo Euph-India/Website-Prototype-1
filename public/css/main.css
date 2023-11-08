@@ -571,17 +571,22 @@ nav {
 }
 
 .page h1 {
+  margin: 20px 0;
   font-size: 5rem;
   margin: 0;
+  color: #FF6000;
 }
 
 .page h2 {
+  margin: 20px 0;
   font-size: 4rem;
+  color: #FF6000;
 }
 
 .page p {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  color: #FF6000;
 }
 
 .page ul li {
@@ -590,26 +595,51 @@ nav {
 
 .page {
   display: flex;
-  flex-direction: grid;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
   min-height: 100vh;
   background-color: #161616;
   color: black;
 }
 
-.page .inv {
-  width: 50%;
-  padding: 20px;
-  background-color: black;
+.pg-left {
+  align-items: flex-start;
+}
+
+.page table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.page table td,
+.page table th {
+  border: 1px solid #FF6000;
+  padding: 8px;
+}
+
+.page table tr {
+  background-color: #161616;
   color: #FF6000;
 }
 
-.page .main {
-  width: 50%;
-  color: black;
+.page table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #161616;
+  color: #FF6000;
+}
+
+.page table thead tr th {
+  border: 1px solid #161616;
   background-color: #FF6000;
-  padding: 20px;
+  color: #161616;
+}
+
+.page table tr:hover {
+  background-color: #ff62007e;
+  color: black;
 }
 
 /* animations */

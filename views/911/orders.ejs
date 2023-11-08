@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="page pg-left">
+  <h1 class="title">
+    Orders
+  </h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer</th>
+        <th>Amount</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% orders.forEach(function(order) { %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.contact.name %></td>
+        <td><%= order.total %></td>
+        <td>
+          <a href="/911/orders/<%= order.id %>">View</a> |
+          <a href="/911/orders/<%= order.id %>/delete">Delete</a>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</main>
+
+<%- include('../partials/footer.ejs') %>s
