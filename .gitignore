@@ -1,3 +1,16 @@
+# Node.js
 node_modules/
+npm-debug.log
+
+# Compiled files
+dist/
+build/
+*.js.map
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# Others
 *.db
 package-lock.json
