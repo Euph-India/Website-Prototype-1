@@ -818,6 +818,7 @@ body {
 }
 
 #loader {
+  background-color: #000000;
   position: absolute;
   left: 50%;
   top: 50%;
