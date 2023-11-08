@@ -15,17 +15,18 @@
     <center><span class="title" id="latest">🔥 <span class="title c-ani-shine-primary">Latest Drops</span> 🔥</span></center>
 
     <div class="products-container">
-        <% products.forEach(product => { %>
-            <a href="/products/<%= product.id %>" class="product-card">
-                <img src="<%= product.img %>" alt="Image of <%= product.name %>" class="image">
-                <div class="w-100 h-100">
-                    <h1 class="title"><%= product.name %></h1>
-                    <p class="text"><%= product.intro %></p>
-                </div>
-                <p class="price"><strike>₹ <%= product.beforeprice %></strike> <%= product.price %></p>
-            </a>
-        <% }) %>
+      <% products.forEach(product => { %>
+      <a href="/products/<%= product.id %>" class="product-card">
+        <img src="<%= product.img %>" alt="Image of <%= product.name %>" class="image">
+        <div class="w-100 h-100">
+          <h1 class="title"><%= product.name %></h1>
+          <p class="text"><%= product.intro %></p>
+        </div>
+        <p class="price"><strike>₹ <%= product.beforeprice %></strike> <%= product.price %></p>
+      </a>
+      <% }) %>
     </div>
+  </div>
 </main>
 
 <script>
@@ -34,9 +35,9 @@
     // flicker
     element.style.opacity = 0;
     setTimeout(() => {
-      element.style.opacity = 1;  
+      element.style.opacity = 1;
       setTimeout(() => {
-        element.style.opacity = 0;   
+        element.style.opacity = 0;
         setTimeout(() => {
           element.style.opacity = 1;
         }, 200);
