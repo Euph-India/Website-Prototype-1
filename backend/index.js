@@ -27,4 +27,33 @@ module.exports = (app, io, db) => {
         req.session.cart = [];
         res.redirect("/cart");
     });
+
+    app.post("/checkout", async (req, res) => {
+        if (!req.session.cart) {
+            req.session.cart = [];
+        }
+        var order = {
+            id: (await db.get("orders")).length + 1,
+            contact: {
+                name: req.body.name,
+                email: req.body.email,
+                phone: req.body.phone
+            },
+            items: req.session.cart,
+            shipping: {
+                address: req.body.address,
+                city: req.body.city,
+                state: req.body.state,
+                pincode: req.body.pincode
+            },
+            total: req.session.cart.reduce((total, item) => total + item.price * item.quantity, 0),
+            status: "Pending"
+        }
+        db.push("orders", order)
+        req.session.cart = [];
+        res.render("order", {
+            order: order,
+            session: req.session
+        });
+    });
 }

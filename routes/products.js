@@ -18,4 +18,13 @@ module.exports = (app, io, db) => {
       session: req.session,
     });
   });
+
+  app.get("/checkout", async (req, res) => {
+    if (!req.session.cart) {
+      req.session.cart = []
+    }
+    res.render("checkout", {
+      session: req.session,
+    });
+  });
 };
