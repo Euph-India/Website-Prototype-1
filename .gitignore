@@ -14,3 +14,4 @@ bower_components/
 # Others
 *.db
 package-lock.json
+.env
