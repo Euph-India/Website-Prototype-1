@@ -47,7 +47,7 @@ const { QuickDB, MySQLDriver } = require("quick.db");
     })
   );
 
-  app.engine("ejs", require("express-art-template"));
+  // app.engine("ejs", require("express-art-template"));
   app.set("view engine", "ejs");
 
   app.use(express.static("public"));

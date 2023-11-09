@@ -9,7 +9,7 @@
     </center>
 
     <div class="products-container">
-      {{each products product}}
+      <% products.forEach((product, index) => { %>
       <a href="/products/<%= product.id %>" class="product-card">
         <img src="<%= product.img %>" alt="Image of <%= product.name %>" class="image">
         <div class="w-100 h-100">
@@ -18,7 +18,7 @@
         </div>
         <p class="price"><strike>₹ <%= product.beforeprice %></strike> <%= product.price %></p>
       </a>
-      {{/each}}
+      <% }) %>
     </div>
   </div>
 </main>

@@ -9,11 +9,6 @@ module.exports = (app, io, db) => {
                 price: 799,
                 beforeprice: 999,
                 id: 1,
-                sizes: [
-                    "small",
-                    "medium",
-                    "large"
-                ]
             },
             {
                 img: "https://via.placeholder.com/150",
@@ -23,11 +18,6 @@ module.exports = (app, io, db) => {
                 price: 799,
                 beforeprice: 999,
                 id: 2,
-                sizes: [
-                    "small",
-                    "medium",
-                    "large"
-                ]
             },
             {
                 img: "https://via.placeholder.com/150",
@@ -37,11 +27,6 @@ module.exports = (app, io, db) => {
                 price: 849,
                 beforeprice: 999,
                 id: 3,
-                sizes: [
-                    "small",
-                    "medium",
-                    "large"
-                ]
             },
         ])
         res.redirect('/#shop')
