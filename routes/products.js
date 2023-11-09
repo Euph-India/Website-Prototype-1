@@ -1,4 +1,12 @@
 module.exports = (app, io, db) => {
+  app.get("/shop", async (req, res) => {
+    var products = await db.get("products");
+    res.render("shop", {
+      products: products,
+      session: req.session,
+    });
+  });
+  
   app.get("/products/:id", async (req, res) => {
     var products = await db.get("products");
     var product = products.find(

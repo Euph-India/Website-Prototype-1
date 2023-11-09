@@ -1,20 +1,15 @@
 <%- include('./partials/header.ejs') %>
 <main>
-  <div class="hero c-bg-dark">
-    <h1 class="hero-title mb-4">
-      <span class="euph">Euph</span>India
-    </h1>
-    <h2 class="hero-subtitle">
-      Dress with Intention
-    </h2>
-    <a href="#shop" class="btn c-button-2 mt-3">SHOP NOW</a>
-  </div>
-
   <div class="products" id="shop">
-    <center><span class="title" id="latest">🔥 <span class="title c-ani-shine-primary">Latest Drops</span> 🔥</span></center>
+    <center>
+      <span class="title">
+        Euph
+        <span class="text-white">Drops</span>
+      </span>
+    </center>
 
     <div class="products-container">
-      {{each products.splice(0,3) product}}
+      {{each products product}}
       <a href="/products/<%= product.id %>" class="product-card">
         <img src="<%= product.img %>" alt="Image of <%= product.name %>" class="image">
         <div class="w-100 h-100">
@@ -25,9 +20,7 @@
       </a>
       {{/each}}
     </div>
-    <a href="/shop" class="btn c-button-2 mt-3">Load More</a>
   </div>
-
 </main>
 
 <script>
