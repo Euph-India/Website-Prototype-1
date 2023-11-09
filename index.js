@@ -29,19 +29,16 @@ const { QuickDB, MySQLDriver } = require("quick.db");
   const fs = require("fs");
 
   const session = require("express-session");
-
-  var sqlite = require("better-sqlite3");
-  var SqliteStore = require("better-sqlite3-session-store")(session);
-  var seshdb = new sqlite("sessions.db");
+  const MySQLStore = require("express-mysql-session")(session);
 
   app.use(
     session({
-      store: new SqliteStore({
-        client: seshdb,
-        expired: {
-          clear: true,
-          intervalMs: 900000, //ms = 15min
-        },
+      store: new MySQLStore({
+        port: 3306,
+        host: process.env.DB_HOST,
+        user: "sql12660470",
+        password: process.env.DB_PASSWORD,
+        database: "sql12660470",
       }),
       secret: "euphindia on the TOP!!",
       resave: true,
