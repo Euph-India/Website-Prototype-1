@@ -1,5 +1,3 @@
-<%- include('./partials/header.ejs') %>
-
 <main>
   <div class="hero c-bg-dark">
     <h1 class="hero-title mb-4">
@@ -15,7 +13,7 @@
     <center><span class="title" id="latest">🔥 <span class="title c-ani-shine-primary">Latest Drops</span> 🔥</span></center>
 
     <div class="products-container">
-      <% products.forEach(product => { %>
+      {{each products product}}
       <a href="/products/<%= product.id %>" class="product-card">
         <img src="<%= product.img %>" alt="Image of <%= product.name %>" class="image">
         <div class="w-100 h-100">
@@ -24,7 +22,7 @@
         </div>
         <p class="price"><strike>₹ <%= product.beforeprice %></strike> <%= product.price %></p>
       </a>
-      <% }) %>
+      {{/each}}
     </div>
   </div>
 </main>
@@ -45,5 +43,3 @@
     }, 200);
   }
 </script>
-
-<%- include('./partials/footer.ejs') %>
