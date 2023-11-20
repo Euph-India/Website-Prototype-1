@@ -1,2 +1,1 @@
-# EuphIndia-Website
-Website for EuphIndia 
+# Prototype#!
